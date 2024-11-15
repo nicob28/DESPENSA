@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Incluir Bootstrap desde CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="styles.css">
+        <header style="background-color: #2C3E50; color: white; padding: 15px 0;">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 style="font-size: 2rem; margin: 0;">Despensa "El Porvenir"</h1>
+                </div>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <button class="btn btn-light" onclick="window.location.href='index.html'">Inicio</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-light" onclick="window.location.href='carrito.html'">Carrito</button>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </head>
+<body>
+    <header style="background-color: #2C3E50; color: white; padding: 15px 0; text-align: center;">
+        <h1>Carrito de Compras</h1>
+        
+    </header>
+
+    <main>
+        <div id="carrito" class="container text-center">
+            <div class="row justify-content-center" id="carritoGrid">
+                <!-- Aquí se agregarán dinámicamente los productos del carrito -->
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <button class="btn btn-success" onclick="confirmarCompra()">Confirmar Compra</button>
+        </div>
+    </main>
+
+    
+    <footer style="background-color: #34495E; color: white; ">
+        
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                    <h5>&copy; 2024 Despensa El Porvenir. Todos los derechos reservados.</h5>
+                </div>
+                
+            
+    </footer>
+    
+
+    <script>
+    
+    
+// Función para consolidar productos repetidos
+function consolidarCarrito(carrito) {
+    const productosUnicos = {};
+
+    carrito.forEach(producto => {
+        if (productosUnicos[producto.nombre]) {
+            // Si el producto ya existe, sumamos la cantidad
+            productosUnicos[producto.nombre].cantidad += producto.cantidad || 1;
+        } else {
+            // Si no existe, lo añadimos con su cantidad inicial
+            productosUnicos[producto.nombre] = { 
+                ...producto, 
+                cantidad: producto.cantidad || 1 
+            };
+        }
+    });
+
+    // Convertimos el objeto a un array de productos únicos
+    return Object.values(productosUnicos);
+}
+
+// Función para mostrar los productos en el carrito
+function mostrarCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const carritoConsolidado = consolidarCarrito(carrito); // Consolidar los productos
+    const carritoGrid = document.getElementById('carritoGrid');
+
+    // Si el carrito está vacío, mostramos un mensaje
+    if (carritoConsolidado.length === 0) {
+        carritoGrid.innerHTML = `
+            <div class="col-12">
+                <p class="text-center">El carrito está vacío.</p>
+            </div>
+        `;
+    } else {
+        carritoGrid.innerHTML = ''; // Limpia el contenido previo
+
+        carritoConsolidado.forEach((producto, index) => {
+            const divProducto = document.createElement('div');
+            divProducto.classList.add('col-sm-4', 'col-md-4', 'mb-4', 'd-flex', 'justify-content-center'); // Centra las tarjetas
+            divProducto.innerHTML = `
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="${producto.imagen || 'default.jpg'}" class="card-img-top" alt="${producto.nombre}">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text">${producto.descripcion}</p>
+                        <p class="card-text">Precio: ${producto.precio}</p>
+                        <p class="card-text">Cantidad: ${producto.cantidad}</p>
+                        <button class="btn btn-danger" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                    </div>
+                </div>
+            `;
+            carritoGrid.appendChild(divProducto);
+        });
+    }
+}
+
+// Función para eliminar un producto del carrito
+function eliminarDelCarrito(index) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+    // Elimina el producto en el índice especificado
+    carrito.splice(index, 1);
+    
+    // Guarda el carrito actualizado en localStorage
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    // Vuelve a mostrar el carrito
+    mostrarCarrito();
+}
+
+// Función para redirigir al usuario a la página de confirmación de compra
+function confirmarCompra() {
+    window.location.href = 'confirmacion.html';  // Redirige a la página de confirmación de compra
+}
+
+// Llamar a la función para mostrar el carrito al cargar la página
+document.addEventListener('DOMContentLoaded', mostrarCarrito);
+</script>
+    </script>
+</body>
+</html>

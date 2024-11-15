@@ -1,0 +1,279 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 768px) {
+    .container {
+        width: 75%;
+    }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 767px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+
+#productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.producto {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+}
+.producto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.producto h3 {
+    color: #4CAF50;
+}
+
+.producto p {
+    margin: 0.5rem 0;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+#formulario {
+    margin: 2rem;
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+    padding-bottom: 3rem; /* Espacio para evitar que el footer cubra el contenido */
+}
+
+main {
+    padding-bottom: 2rem;  /* Añadir algo de espacio en la parte inferior del contenido */
+}
+
+#categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.categoria {
+    border: 1px solid #3673e5;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    background-color: #3673e5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.categoria:hover {
+    transform: scale(1.05);
+}
+.categoria img {
+    max-width: 100%;
+    height: auto;
+}
+
+.categoria h3 {
+    color: #4CAF50;
+}
+
+.categoria p {
+    margin: 0.5rem 0;
+}
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover; /* Asegura que la imagen mantenga una buena proporción */
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card h3 {
+    color: #4CAF50;
+}
+
+.card p {
+    margin: 0.5rem 0;
+}
+#carritoGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+header {
+    border-bottom: 2px solid #BDC3C7;
+}
+
+header h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+nav .nav-item {
+    margin-left: 20px;
+}
+
+/* Aseguramos que todo el contenido ocupe toda la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* El cuerpo debe usar el espacio completo y distribuir el contenido de arriba a abajo */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenido principal debe usar el espacio restante */
+main {
+    flex: 1;
+}
+
+/* Footer ajustado al fondo, sin espacio extra debajo */
+footer {
+    background-color: #34495E;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto; /* Asegura que el footer quede abajo */
+}
+
+/* Estilo de los enlaces del footer */
+footer a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+footer a:hover {
+    color: #ECF0F1;
+    transition: color 0.3s ease;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+footer .list-unstyled li {
+    display: inline;
+}
+
+footer .col-md-6 {
+    margin-bottom: 20px;
+}
+
+/* Para asegurar que el contenido en el footer no se solape */
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

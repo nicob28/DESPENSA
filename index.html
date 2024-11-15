@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Incluir Bootstrap desde CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="styles.css">
+    <header style="background-color: #2C3E50; color: white; padding: 15px 0;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <h1 style="font-size: 2rem; margin: 0;">Despensa "El Porvenir"</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <button class="btn btn-light" onclick="window.location.href='index.html'">Inicio</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light" onclick="window.location.href='carrito.html'">Carrito</button>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+</head>
+<body>
+    <header style="background-color: #2C3E50; color: white; padding: 15px 0; text-align: center;">
+        <h1>Seleccione una Categoría</h1>
+        
+    </header>
+    
+    <main>
+        <section id="categorias" class="d-flex justify-content-center align-items-center flex-column">
+            <button class="categoria btn btn-primary m-2" onclick="window.location.href='productos.html?categoria=ropa'">Ropa</button>
+            <button class="categoria btn btn-primary m-2" onclick="window.location.href='productos.html?categoria=electronicos'">Electrónicos</button>
+            <button class="categoria btn btn-primary m-2" onclick="window.location.href='productos.html?categoria=alimentos'">Alimentos</button>
+        </section>
+    </main>
+    
+    
+    <footer style="background-color: #34495E; color: white; ">
+        
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                    <h5>&copy; 2024 Despensa El Porvenir. Todos los derechos reservados.</h5>
+                </div>
+                
+            
+    </footer>
+</body>
+</html>
